@@ -28,4 +28,6 @@ public interface Constants {
 	public static final String OPTION2_BIRTHDAY_YEAR = "-y";
 	public static final String OPTION2_BIRTHDAY_MONTH = "-m";
 	public static final String OPTION2_BIRTHDAY_DAY = "-d";
+	
+	public static final String NO_DATA = "NONE";
 }
