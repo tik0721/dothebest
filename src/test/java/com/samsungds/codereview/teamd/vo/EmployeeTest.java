@@ -32,6 +32,8 @@ public class EmployeeTest {
 		assertEquals(1998, employee.getBirthdayYear());
 		assertEquals(9, employee.getBirthdayMonth());
 		assertEquals(6, employee.getBirthdayDay());
+		
+		assertEquals(2018050301, employee.getEmployeeNumForSort());
 	}
 
 	@Test
@@ -79,9 +81,9 @@ public class EmployeeTest {
 	@Test
 	void toStringTest() {
 		assertEquals(
-				"Employee [employeeNum=18050301, name=KYUMOK KIM, cl=CL2, phoneNum=010-9777-6055, birthday=19980906, "
-					+"certi=PRO, nameFirst=KYUMOK, nameLast=KIM, phoneNumMid=9777, phoneNumLast=6055, "
-					+"birthdayYear=1998, birthdayMonth=9, birthdayDay=6]",
+				"Employee [employeeNum=18050301, name=KYUMOK KIM, cl=CL2, phoneNum=010-9777-6055, birthday=19980906, certi=PRO, "
+						+"employeeNumForSort=2018050301, nameFirst=KYUMOK, nameLast=KIM, phoneNumMid=9777, phoneNumLast=6055, "
+						+"birthdayYear=1998, birthdayMonth=9, birthdayDay=6]",
 				employee.toString());
 	}
 

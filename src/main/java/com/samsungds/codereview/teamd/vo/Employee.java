@@ -3,12 +3,15 @@ package com.samsungds.codereview.teamd.vo;
 import com.samsungds.codereview.teamd.constant.Constants;
 
 public class Employee {
+	
 	private String employeeNum;
 	private String name;
 	private String cl;
 	private String phoneNum;
 	private String birthday;
 	private String certi;
+
+	private int employeeNumForSort;
 
 	private String nameFirst;
 	private String nameLast;
@@ -21,7 +24,7 @@ public class Employee {
 	private int birthdayDay;
 
 	public Employee(String employeeNum, String name, String cl, String phoneNum, String birthday, String certi) {
-		this.employeeNum = employeeNum;
+		setEmployeeNum(employeeNum);
 		this.cl = cl;
 		this.certi = certi;
 		setName(name);
@@ -82,6 +85,12 @@ public class Employee {
 		return employeeNum;
 	}
 
+	private void setEmployeeNum(String employeeNum) {
+		this.employeeNum = employeeNum;
+		this.employeeNumForSort = employeeNum.charAt(0) > Constants.SEPARATOR_EMPLOYEE_NUM ? Integer.parseInt(Constants.EMPLOYEE_NUM_PREFIX_BEFORE_MILLENIUM + employeeNum)
+				: Integer.parseInt(Constants.EMPLOYEE_NUM_PREFIX_AFTER_MILLENIUM + employeeNum);
+	}
+
 	public String getNameFirst() {
 		return nameFirst;
 	}
@@ -110,12 +119,17 @@ public class Employee {
 		return birthdayDay;
 	}
 
+	public int getEmployeeNumForSort() {
+		return employeeNumForSort;
+	}
+
 	@Override
 	public String toString() {
 		return "Employee [employeeNum=" + employeeNum + ", name=" + name + ", cl=" + cl + ", phoneNum=" + phoneNum
-				+ ", birthday=" + birthday + ", certi=" + certi + ", nameFirst=" + nameFirst + ", nameLast=" + nameLast
-				+ ", phoneNumMid=" + phoneNumMid + ", phoneNumLast=" + phoneNumLast + ", birthdayYear=" + birthdayYear
-				+ ", birthdayMonth=" + birthdayMonth + ", birthdayDay=" + birthdayDay + "]";
+				+ ", birthday=" + birthday + ", certi=" + certi + ", employeeNumForSort=" + employeeNumForSort
+				+ ", nameFirst=" + nameFirst + ", nameLast=" + nameLast + ", phoneNumMid=" + phoneNumMid
+				+ ", phoneNumLast=" + phoneNumLast + ", birthdayYear=" + birthdayYear + ", birthdayMonth="
+				+ birthdayMonth + ", birthdayDay=" + birthdayDay + "]";
 	}
 
 	public String toInfoString() {
