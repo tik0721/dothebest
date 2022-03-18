@@ -135,7 +135,6 @@ class RepositoryTest {
 	@Test
 	void testModifyImpl() {
 		IRepository repo = new Repository();
-		
 		List<Employee> list = readSample();
 		for(Employee emp : list) {
 			repo.add(emp);

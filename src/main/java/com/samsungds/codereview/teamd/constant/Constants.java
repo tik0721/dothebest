@@ -32,4 +32,6 @@ public interface Constants {
 	public static final char SEPARATOR_EMPLOYEE_NUM = '5';
 	public static final String EMPLOYEE_NUM_PREFIX_BEFORE_MILLENIUM = "19";
 	public static final String EMPLOYEE_NUM_PREFIX_AFTER_MILLENIUM = "20";
+
+  public static final String NO_DATA = "NONE";
 }
