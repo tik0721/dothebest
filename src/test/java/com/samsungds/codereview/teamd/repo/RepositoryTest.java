@@ -98,10 +98,10 @@ class RepositoryTest {
 		List<Employee> list = readSample();
 		for(Employee emp : list) {
 			Integer empKey = repo.add(emp);
-			if(emp.getEmployeeNum().charAt(0) > '5') {
-				assertEquals(Integer.valueOf("19" + emp.getEmployeeNum()), empKey);
+			if(emp.getEmployeeNum().charAt(0) > Constants.SEPARATOR_EMPLOYEE_NUM) {
+				assertEquals(Integer.valueOf(Constants.EMPLOYEE_NUM_PREFIX_BEFORE_MILLENIUM + emp.getEmployeeNum()), empKey);
 			}else {
-				assertEquals(Integer.valueOf("20" + emp.getEmployeeNum()), empKey);
+				assertEquals(Integer.valueOf(Constants.EMPLOYEE_NUM_PREFIX_AFTER_MILLENIUM + emp.getEmployeeNum()), empKey);
 			}
 		}
 	}
@@ -110,7 +110,7 @@ class RepositoryTest {
 	void testAddDuplicateEmp() {
 		IRepository repo = new Repository();
 		
-		Employee emp = new Employee("59123456", "±æµ¿ È«", "CL3", "010-001-0001", "20000101", "PRO");
+		Employee emp = new Employee("59123456", "Kildong Hong", "CL3", "010-001-0001", "20000101", "PRO");
 		Integer empKey = repo.add(emp);
 		assertEquals(2059123456, empKey);
 
@@ -119,16 +119,21 @@ class RepositoryTest {
 	}
 	
 	@Test
-	void testDel() {
+	void testDelImpl() {
 		IRepository repo = new Repository();
-		Integer empKey = repo.add(new Employee("59123456", "±æµ¿ È«", "CL3", "010-001-0001", "19880101", "PRO"));
+		Integer empKey = repo.add(new Employee("59123456", "Kildong Hong", "CL3", "010-001-0001", "19880101", "PRO"));
 		assertEquals(2059123456, empKey);
-		repo.add(new Employee("00123456", "¹Î¼ö ±è", "CL2", "010-001-1001", "20000101", "PRO"));
+		repo.add(new Employee("00123456", "Minsu Kim", "CL2", "010-001-1001", "20000101", "PRO"));
 		
 		Map<Integer, Employee> result = repo.delete(Constants.EMPLOYEE_CAREER_LEVEL, "CL3");
 		
 		assertEquals(1, result.keySet().size());
 		assertEquals(1, result.keySet().size());
 
+	}
+	
+	@Test
+	void testModifyImpl() {
+		IRepository repo = new Repository();
 	}
 }
