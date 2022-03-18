@@ -59,6 +59,7 @@ public class PrintTest {
 			FilePrint print = new FilePrint(outputFilePath);
 			
 			print.print(Constants.COMMAND_ADD, employees, true);
+			print.close();
 			
 			int count = 0;
 			BufferedReader inFile = new BufferedReader(new FileReader(file)); 
@@ -80,6 +81,7 @@ public class PrintTest {
 			FilePrint print = new FilePrint(outputFilePath);
 			
 			print.print(Constants.COMMAND_ADD, employees, false);
+			print.close();
 			
 			int count = 0;
 			BufferedReader inFile = new BufferedReader(new FileReader(file)); 
@@ -100,6 +102,7 @@ public class PrintTest {
 			FilePrint print = new FilePrint(outputFilePath);
 			
 			print.print(Constants.COMMAND_ADD, new ArrayList(), false);
+			print.close();
 			
 			int count = 0;
 			BufferedReader inFile = new BufferedReader(new FileReader(file)); 

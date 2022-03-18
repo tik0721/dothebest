@@ -13,7 +13,13 @@ public class FilePrint {
 	private BufferedWriter writer;
 	
 	public FilePrint(String path) throws IOException {
-		writer = new BufferedWriter(new FileWriter(new File(path)));
+		File file = new File(path);
+		
+		if(file.exists() == false) {
+			file.createNewFile();
+		}
+		
+		writer = new BufferedWriter(new FileWriter(file));
 	}
 	
 	public void print(String command, Collection<Employee> employees, Boolean printOptionEnable) throws IOException {
@@ -32,8 +38,10 @@ public class FilePrint {
 				writer.newLine();
 			}
 		}
-		
+	}
+	
+	
+	public void close() throws IOException {
 		writer.close();
 	}
-
 }
