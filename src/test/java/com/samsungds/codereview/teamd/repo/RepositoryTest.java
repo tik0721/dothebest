@@ -23,7 +23,6 @@ import com.samsungds.codereview.teamd.vo.Employee;
 
 @ExtendWith(MockitoExtension.class)
 class RepositoryTest {
-	
 	private static final String TESTINPUTFILE = "./input_20_20.txt";
 
 	@Mock
